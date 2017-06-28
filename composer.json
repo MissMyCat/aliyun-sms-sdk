@@ -9,6 +9,12 @@
             "email": "mrgoon@foxmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Mrgoon\\AliyunSmsSdk\\": "aliyun-php-sdk-core/",
+            "Mrgoon\\Dysmsapi\\Request\\V20170525\\": "Dysmsapi/Request/V20170525"
+        }
+    },
     "minimum-stability": "dev",
     "require": {
 		"php": ">5.3"
