@@ -3,6 +3,7 @@
 	"description": "阿里云短信服务核心代码",
     "keywords": ["sdk", "aliyun", "aliyun-sms"],
     "license": "MIT",
+	"version": "1.0.0",
     "authors": [
         {
             "name": "mrgoon",
