@@ -3,7 +3,6 @@
 	"description": "阿里云短信服务核心代码",
     "keywords": ["sdk", "aliyun", "aliyun-sms"],
     "license": "MIT",
-	"version": "1.0.0",
     "authors": [
         {
             "name": "mrgoon",
@@ -13,10 +12,5 @@
     "minimum-stability": "dev",
     "require": {
 		"php": ">5.3"
-	},
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    }
+	}
 }
