@@ -17,9 +17,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-namespace Dysmsapi\Request\V20170525;
+namespace Mrgoon\Dysmsapi\Request\V20170525;
 
-class QuerySendDetailsRequest extends \RpcAcsRequest
+use Mrgoon\AliyunSmsSdk\RpcAcsRequest;
+
+class QuerySendDetailsRequest extends RpcAcsRequest
 {
 	function  __construct()
 	{
