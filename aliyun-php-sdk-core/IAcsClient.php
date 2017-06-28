@@ -17,6 +17,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+namespace Mrgoon\AliyunSmsSdk;
+
 interface IAcsClient
 {
 	public function doAction($requst);

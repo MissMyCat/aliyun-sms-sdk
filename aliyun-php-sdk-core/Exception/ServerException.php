@@ -17,6 +17,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+namespace Mrgoon\AliyunSmsSdk\Exception;
+
 class ServerException extends ClientException
 {
     private $httpStatus;

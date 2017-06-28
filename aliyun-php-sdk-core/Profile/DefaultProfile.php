@@ -17,6 +17,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+namespace Mrgoon\AliyunSmsSdk\Profile;
+
+use Mrgoon\AliyunSmsSdk\Auth\Credential;
+use Mrgoon\AliyunSmsSdk\Auth\ShaHmac1Signer;
+
 class DefaultProfile implements IClientProfile
 {
 	private static $profile;

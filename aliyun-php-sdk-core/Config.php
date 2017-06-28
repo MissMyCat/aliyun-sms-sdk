@@ -17,6 +17,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+namespace Mrgoon\AliyunSmsSdk;
+
+use Mrgoon\AliyunSmsSdk\AutoLoader\Autoloader;
+
 include_once 'Autoloader/Autoloader.php';
 include_once 'Regions/EndpointConfig.php';
 

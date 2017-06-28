@@ -17,6 +17,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+namespace Mrgoon\AliyunSmsSdk\Http;
+
 class HttpHelper
 {
 	public static $connectTimeout = 30;//30 second

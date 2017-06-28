@@ -17,7 +17,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-class ClientException extends Exception
+namespace Mrgoon\AliyunSmsSdk\Exception;
+
+class ClientException extends \Exception
 {
     function  __construct($errorMessage, $errorCode)
     {
