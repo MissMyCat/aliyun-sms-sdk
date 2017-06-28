@@ -1,4 +1,7 @@
 <?php
+
+namespace Mrgoon\AliyunSmsSdk\Regions;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,7 +20,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-namespace Mrgoon\AliyunSmsSdk\Regions;
 
 $endpoint_filename = dirname(__FILE__) . DIRECTORY_SEPARATOR . "endpoints.xml";
 $xml = simplexml_load_string(file_get_contents($endpoint_filename));

@@ -19,7 +19,12 @@
  */
 namespace Mrgoon\AliyunSmsSdk;
 
-class DefaultAcsClient implements IAcsClient 
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
+use Mrgoon\AliyunSmsSdk\Http\HttpHelper;
+use Mrgoon\AliyunSmsSdk\Regions\EndpointProvider;
+
+class DefaultAcsClient implements IAcsClient
 {    
     public $iClientProfile;
     public $__urlTestFlag__;

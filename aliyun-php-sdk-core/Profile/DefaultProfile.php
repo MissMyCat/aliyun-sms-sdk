@@ -21,6 +21,9 @@ namespace Mrgoon\AliyunSmsSdk\Profile;
 
 use Mrgoon\AliyunSmsSdk\Auth\Credential;
 use Mrgoon\AliyunSmsSdk\Auth\ShaHmac1Signer;
+use Mrgoon\AliyunSmsSdk\Regions\Endpoint;
+use Mrgoon\AliyunSmsSdk\Regions\EndpointProvider;
+use Mrgoon\AliyunSmsSdk\Regions\ProductDomain;
 
 class DefaultProfile implements IClientProfile
 {
@@ -37,6 +40,12 @@ class DefaultProfile implements IClientProfile
 	{
 	    self::$regionId = $regionId;
 	    self::$credential = $credential;
+
+		/**
+		 * include config.php
+		 */
+		define("ROOT_PATH", dirname(__FILE__) . '/../');
+		include( ROOT_PATH . 'Config.php');
 	}
 	
 	public static function getProfile($regionId, $accessKeyId, $accessSecret)
@@ -115,7 +124,7 @@ class DefaultProfile implements IClientProfile
 	{
 		$regionIds = array($regionId);
 		$productsDomains = array(new ProductDomain($product, $domain));
-		$endpoint = new Endpoint($endpointName, $regionIds, $productDomains);
+		$endpoint = new Endpoint($endpointName, $regionIds, $productsDomains);
 		array_push(self::$endpoints, $endpoint);
 	}
 	
