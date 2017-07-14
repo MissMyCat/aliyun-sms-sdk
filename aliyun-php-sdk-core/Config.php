@@ -22,10 +22,14 @@
 namespace Mrgoon\AliyunSmsSdk;
 /**
  * get end point data from xml
+ * get place info
  */
-include_once ROOT_PATH .'Regions/EndpointConfig.php'; //这个地方读取地区信息
+include_once ROOT_PATH .'Regions/EndpointConfig.php';
 
-define('ENABLE_HTTP_PROXY', env('ALIYUN_SMS_ENABLE_HTTP_PROXY', false));
-define('HTTP_PROXY_IP',     env('ALIYUN_SMS_HTTP_PROXY_IP', '127.0.0.1'));
-define('HTTP_PROXY_PORT',   env('ALIYUN_SMS_HTTP_PROXY_PORT', '8888'));
+/**
+ * hard code without `env` function
+ */
+define('ENABLE_HTTP_PROXY', false);
+define('HTTP_PROXY_IP',     '127.0.0.1');
+define('HTTP_PROXY_PORT',   '8888');
 
