@@ -44,8 +44,11 @@ class DefaultProfile implements IClientProfile
 		/**
 		 * include config.php
 		 */
-		define("ROOT_PATH", dirname(__FILE__) . '/../');
-		include( ROOT_PATH . 'Config.php');
+		if (!defined("SMS_PATH")) {
+			define("SMS_PATH", dirname(__FILE__) . '/../');
+		}
+
+		include( SMS_PATH . 'Config.php');
 	}
 	
 	public static function getProfile($regionId, $accessKeyId, $accessSecret)
