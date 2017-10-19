@@ -144,5 +144,13 @@ abstract class AcsRequest
         $this->headers[$headerKey] = $headerValue;
     } 
 	
-		
+	public function getLocationServiceCode()
+	{
+		return $this->locationServiceCode;
+	}
+
+	public function getLocationEndpointType()
+	{
+		return $this->locationEndpointType;
+	}
 }
