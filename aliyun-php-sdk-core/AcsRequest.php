@@ -32,13 +32,19 @@ abstract class AcsRequest
 	
 	protected $queryParameters = array();
 	protected $headers = array();
-	
-	function  __construct($product, $version, $actionName)
+
+	protected $locationServiceCode;
+	protected $locationEndpointType;
+
+	function  __construct($product, $version, $actionName, $locationServiceCode = null, $locationEndpointType = "openAPI")
 	{
 	    $this->headers["x-sdk-client"] = "php/2.0.0";
 	    $this->product = $product;
 	    $this->version = $version;
 	    $this->actionName = $actionName;
+
+		$this->locationServiceCode = $locationServiceCode;
+		$this->locationEndpointType = $locationEndpointType;
 	}
 	
 	public abstract function composeUrl($iSigner, $credential, $domain);

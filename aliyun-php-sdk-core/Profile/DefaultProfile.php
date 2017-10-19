@@ -23,6 +23,7 @@ use Mrgoon\AliyunSmsSdk\Auth\Credential;
 use Mrgoon\AliyunSmsSdk\Auth\ShaHmac1Signer;
 use Mrgoon\AliyunSmsSdk\Regions\Endpoint;
 use Mrgoon\AliyunSmsSdk\Regions\EndpointProvider;
+use Mrgoon\AliyunSmsSdk\Regions\LocationService;
 use Mrgoon\AliyunSmsSdk\Regions\ProductDomain;
 
 class DefaultProfile implements IClientProfile
@@ -101,6 +102,8 @@ class DefaultProfile implements IClientProfile
 		{
 			self::updateEndpoint($regionId, $product, $domain, $endpoint);
 		}
+
+		LocationService::addEndPoint($regionId, $product, $domain);
 	}
 	
 	public static function findEndpointByName($endpointName)

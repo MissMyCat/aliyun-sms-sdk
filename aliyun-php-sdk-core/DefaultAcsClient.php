@@ -19,20 +19,23 @@
  */
 namespace Mrgoon\AliyunSmsSdk;
 
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
+use Mrgoon\AliyunSmsSdk\Exception\ClientException;
+use Mrgoon\AliyunSmsSdk\Exception\ServerException;
 use Mrgoon\AliyunSmsSdk\Http\HttpHelper;
 use Mrgoon\AliyunSmsSdk\Regions\EndpointProvider;
+use Mrgoon\AliyunSmsSdk\Regions\LocationService;
 
 class DefaultAcsClient implements IAcsClient
 {    
     public $iClientProfile;
     public $__urlTestFlag__;
-    
+    private $locationService;
+
     function  __construct($iClientProfile)
     {
         $this->iClientProfile = $iClientProfile;
         $this->__urlTestFlag__ = false;
+        $this->locationService = new LocationService($this->iClientProfile);
     }
     
     public function getAcsResponse($request, $iSigner = null, $credential = null, $autoRetry = true, $maxRetryNumber = 3)
@@ -47,8 +50,8 @@ class DefaultAcsClient implements IAcsClient
     }
 
     private function doActionImpl($request, $iSigner = null, $credential = null, $autoRetry = true, $maxRetryNumber = 3)
-    {    
-        if(null == $this->iClientProfile && (null == $iSigner || null == $credential 
+    {
+        if (null == $this->iClientProfile && (null == $iSigner || null == $credential
             || null == $request->getRegionId() || null == $request->getAcceptFormat()))
         {
             throw new ClientException("No active profile found.", "SDK.InvalidProfile");
@@ -62,7 +65,14 @@ class DefaultAcsClient implements IAcsClient
             $credential = $this->iClientProfile->getCredential();
         }
         $request = $this->prepareRequest($request);
-        $domain = EndpointProvider::findProductDomain($request->getRegionId(), $request->getProduct());
+        // Get the domain from the Location Service by speicified `ServiceCode` and `RegionId`.
+        $domain = null;
+        if (null != $request->getLocationServiceCode()) {
+            $domain = $this->locationService->findProductDomain($request->getRegionId(), $request->getLocationServiceCode(), $request->getLocationEndpointType(), $request->getProduct());
+        }
+        if ($domain == null) {
+            $domain = EndpointProvider::findProductDomain($request->getRegionId(), $request->getProduct());
+        }
         if(null == $domain)
         {
             throw new ClientException("Can not find endpoint to access.", "SDK.InvalidRegionId");

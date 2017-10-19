@@ -25,6 +25,7 @@ namespace Mrgoon\AliyunSmsSdk;
  * get place info
  */
 include_once SMS_PATH .'Regions/EndpointConfig.php';
+include_once SMS_PATH . 'Regions/LocationService.php';
 
 /**
  * hard code without `env` function
