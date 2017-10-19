@@ -40,15 +40,6 @@ class DefaultProfile implements IClientProfile
 	{
 	    self::$regionId = $regionId;
 	    self::$credential = $credential;
-
-		/**
-		 * include config.php
-		 */
-		if (!defined("SMS_PATH")) {
-			define("SMS_PATH", dirname(__FILE__) . '/../');
-		}
-
-		include( SMS_PATH . 'Config.php');
 	}
 	
 	public static function getProfile($regionId, $accessKeyId, $accessSecret)
