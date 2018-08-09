@@ -19,6 +19,8 @@
  */
 namespace Mrgoon\AliyunSmsSdk\Http;
 
+use Mrgoon\AliyunSmsSdk\Exception\ClientException;
+
 class HttpHelper
 {
 	public static $connectTimeout = 30;//30 second
