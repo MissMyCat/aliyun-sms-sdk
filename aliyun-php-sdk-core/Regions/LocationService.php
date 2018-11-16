@@ -21,12 +21,12 @@ namespace Mrgoon\AliyunSmsSdk\Regions;
 
 use Mrgoon\AliyunSmsSdk\RpcAcsRequest;
 
-define("LOCATION_SERVICE_PRODUCT_NAME", "Location");
-define("LOCATION_SERVICE_DOMAIN", "location.aliyuncs.com");
-define("LOCATION_SERVICE_VERSION", "2015-06-12");
-define("LOCATION_SERVICE_DESCRIBE_ENDPOINT_ACTION", "DescribeEndpoints");
-define("LOCATION_SERVICE_REGION", "cn-hangzhou");
-define("CACHE_EXPIRE_TIME", 3600);
+defined("LOCATION_SERVICE_PRODUCT_NAME") || define("LOCATION_SERVICE_PRODUCT_NAME", "Location");
+defined("LOCATION_SERVICE_DOMAIN") || define("LOCATION_SERVICE_DOMAIN", "location.aliyuncs.com");
+defined("LOCATION_SERVICE_VERSION") || define("LOCATION_SERVICE_VERSION", "2015-06-12");
+defined("LOCATION_SERVICE_DESCRIBE_ENDPOINT_ACTION") || define("LOCATION_SERVICE_DESCRIBE_ENDPOINT_ACTION", "DescribeEndpoints");
+defined("LOCATION_SERVICE_REGION") || define("LOCATION_SERVICE_REGION", "cn-hangzhou");
+defined("CACHE_EXPIRE_TIME") || define("CACHE_EXPIRE_TIME", 3600);
 
 class DescribeEndpointRequest extends RpcAcsRequest
 {
