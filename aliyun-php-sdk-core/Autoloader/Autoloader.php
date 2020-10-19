@@ -17,7 +17,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-namespace Mrgoon\AliyunSmsSdk\AutoLoader;
+namespace Mrgoon\AliyunSmsSdk\Autoloader;
 
 spl_autoload_register("Autoloader::autoload");
 class Autoloader
@@ -30,7 +30,7 @@ class Autoloader
 		"aliyun-php-sdk-core/Regions",
 		"aliyun-php-sdk-core/Exception"
 	);
-	
+
 	public static function autoload($className)
 	{
 		foreach (self::$autoloadPathArray as $path) {
@@ -42,11 +42,9 @@ class Autoloader
 			}
 		}
 	}
-	
+
 	public static function addAutoloadPath($path)
 	{
 		array_push(self::$autoloadPathArray, $path);
 	}
 }
-
-?>
